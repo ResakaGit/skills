@@ -1,0 +1,19 @@
+{
+  "description": "Fork layer: the agent replies in SKILLS_LANG (default Spanish) while the skills stay in English.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          { "type": "command", "command": "sh \"${CLAUDE_PLUGIN_ROOT}/hooks/reply-language.sh\" full" }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          { "type": "command", "command": "sh \"${CLAUDE_PLUGIN_ROOT}/hooks/reply-language.sh\" short" }
+        ]
+      }
+    ]
+  }
+}
